@@ -21,7 +21,7 @@
             <p>
                 {{ form.username.label }}<br>
                 {{ form.username(size=20) }}<br>
-                {% for error in form.userrname.errors %}
+                {% for error in form.username.errors %}
                 <span style="color: red;">[{{ error }}]</span>
                 {% endfor %}
             </p>
@@ -61,7 +61,12 @@
                 {% endfor %}
             </p>
             <br>
-            <p>{{ form.submit() }}</p>   
+            <p>{{ form.submit() }}</p>
+            <div>
+                <small>
+                    Already an Agent? <a href="{{ url_for('login') }}">Login</a>
+                </small>
+            </div>  
         </form>
     </div>
 {% endblock content %}

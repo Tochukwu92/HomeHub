@@ -1,4 +1,4 @@
-from flask import render_template
+from flask import render_template, url_for
 from app import app
 from app.forms import RegistrationForm, LoginForm
 from config import Config
