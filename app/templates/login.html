@@ -1,25 +1,19 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div>
-    <form action="" method="POST">
-        {{ form.hidden_tag() }}
-        <p>
-            {{ form.email.label }}<br>
-            {{ form.email(size=64) }}<br>
-            {% for error in form.email.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>
-            {{ form.password.label }}<br>
-            {{ form.password(size=32) }}<br>
-            {% for error in form.password.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <br>
-        <p>{{ form.submit() }}</p>   
-    </form>
-</div>
+    <section class="form__section">
+        <div class="container form__section-container">
+            <h2>Sign In</h2>
+
+            <form action="" method="Post">
+            
+                <input type="text" placeholder="Username or Email">
+                <input type="password" placeholder="Password">
+                
+
+                <button type="Submit" class="btn">Sign In</button>
+                <small>Don't have an account? <a href="signup.html">Sign Up</a></small>
+            </form>
+        </div>
+    </section>
 {% endblock content %}
