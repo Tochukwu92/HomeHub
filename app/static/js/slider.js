@@ -18,4 +18,3 @@ const swiper = new Swiper(".heroslider", {
       clickable: true,
     },
 });
-  
