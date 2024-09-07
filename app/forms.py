@@ -132,7 +132,7 @@ class EditPostForm(FlaskForm):
 
     status = SelectField(
         'Satus',
-        choice=['Vacant', 'No vacant'])
+        choice=['Vacant', 'Rented'])
     
     photos = MultipleFileField('Images', validators=[
         FileAllowed(['jpg', 'jpeg', 'png', 'gif'], 'Images only')])

@@ -50,7 +50,7 @@ class StatusEnum(enum.Enum):
     this class make sure that status filed in the Post class has
     only 'Rented' or 'Vacant' options
     """
-    RENTED = 'No vacant'
+    RENTED = 'Rented'
     VACANT = 'Vacant'
 
 class Post(db.Model):
