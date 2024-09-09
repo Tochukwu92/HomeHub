@@ -31,16 +31,45 @@
     {% endif %}
   </head>
   <body>
-    <div>HomeHub:
-	    <a href="{{ url_for('home') }}">Home</a>
-	    {% if current_user.is_anonymous %}
-	    <a href="{{ url_for('login') }}">Login</a>
-	    <a href="{{ url_for('register') }}">Sign Up</a>
-	    {% else %}
-	    <a href="{{ url_for('logout') }}">logout</a>
-	    <a href="{{ url_for('account') }}">Account</a>
-	    {% endif %}
-    <hr>
+    <div class="navigation">
+        <div class="nav-center container d-flex">
+          <a href="#" class="logo"><h1>HomeHub</h1></a>
+
+          <ul class="nav-list d-flex">
+            <li class="nav-item">
+                <a href="{{ url_for('home') }}" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ url_for('services') }}" class="nav-link">Services</a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ url_for('about') }}" class="nav-link">About</a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ url_for('contact') }}" class="nav-link">Contact</a>
+            </li>
+            { % if current_user.is_anonymous %}
+              <li class="nav-item">
+                  <a href="{{ url_for('login') }}" class="nav_sign">Login</a>
+              </li>
+              <li class="nav-item">
+                  <a href="{{ url_for('register') }}" class="nav_sign">Sign Up</a>
+              </li>
+            { % else % }  
+              <li class="nav-item">
+                  <a href="{{ url_for('logout') }}" class="nav_sign">logout</a>
+              </li>
+              <li class="nav-item">
+                  <a href="{{ url_for('account') }}" class="nav_sign">Account</a>
+              </li>
+            { % endif % }  
+          </ul>
+
+          <div class="hamburger">
+            <i class="bx bx-menu-alt-left"></i>
+          </div>
+        </div>
+    </div>
     {% with messages = get_flashed_messages() %}
         {% if messages %}
             {% for message in messages %}
@@ -51,9 +80,36 @@
     {% block content %}
 
     {% endblock content %}
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="row">
+        <div class="col d-flex">
+            <h2>INFORMATION</h2>
+            <a href="{{ url_for('about') }}">About us</a>
+            <a href="{{ url_for('contact') }}">Contact Us</a>
+            <a href="{{ url_for('term') }}">Term & Conditions</a>
+            <a href="{{ url_for('shipping') }}">Shipping Guide</a>
+        </div>
+        <div class="col d-flex">
+            <h2>USEFUL LINK</h2>
+            <a href="">Online Store</a>
+            <a href="">Customer Services</a>
+            <a href="">Promotion</a>
+            <a href="">Top Brands</a>
+        </div>
+        <div class="col d-flex">
+            <span><i class="bx bxl-facebook-square"></i></span>
+            <span><i class="bx bxl-instagram-alt"></i></span>
+            <span><i class="bx bxl-github"></i></span>
+            <span><i class="bx bxl-twitter"></i></span>
+        </div>
+      </div>
+    </footer>
+    <div class="footer__copyright">
+      <small>copyright @copy: | ALX GROUP PROJECT</small>
+    </div>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-  <script src="{{ url_for('static', filename='js/slider.js.js') }}"></script>
-  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/slider.js.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
   </body>
-  
 </html>
