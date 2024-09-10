@@ -1,32 +1,32 @@
 {% extends 'base.html' %}
-
-{% block content %}
-    <section class="empty__page">
-        <h1>Profile Account</h1>
-        <table style style="border: 1px solid black; border-collapse: collapse;">
-            <tr valign="top">
-                <td style="border: 1px solid black;">
-                    <h1>Agent: {{ current_user.username }}</h1>
-                    {% if current_user.last_seen %}<p>Last seen on: {{ current_user.last_seen }}</p>
-                    {% endif %}
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <p>Phone number : {{ current_user.phone_number }}</p></br>
-                    {% if current_user.phone_number_2 %}
-                    <p>Phone number 2: {{ current_user.phone_number_2 }}</p>
-                    {% endif %}
-                </td>
-            </tr>
-            <hr>
-            <p>
-                <a href="{{ url_for('edit_account') }}">Edit profile</a>
-            </p>
-            <p>
-                <a href="{{ url_for('create_post') }}">Create post</a>
-            </p>
-        </table>
-    </section>
-{% endblock content %}
- 
+<body>
+    {% block content %}
+        <section class="empty__page">
+            <h1>Profile Account</h1>
+            <table style style="border: 1px solid black; border-collapse: collapse;">
+                <tr valign="top">
+                    <td style="border: 1px solid black;">
+                        <h1>Agent: {{ current_user.username }}</h1>
+                        {% if current_user.last_seen %}<p>Last seen on: {{ current_user.last_seen }}</p>
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Phone number : {{ current_user.phone_number }}</p></br>
+                        {% if current_user.phone_number_2 %}
+                        <p>Phone number 2: {{ current_user.phone_number_2 }}</p>
+                        {% endif %}
+                    </td>
+                </tr>
+                <hr>
+                <p>
+                    <a href="{{ url_for('edit_account') }}">Edit profile</a>
+                </p>
+                <p>
+                    <a href="{{ url_for('create_post') }}">Create post</a>
+                </p>
+            </table>
+        </section>
+    {% endblock content %}
+</body>

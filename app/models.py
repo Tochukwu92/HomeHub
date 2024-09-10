@@ -15,6 +15,7 @@ def load_user(id):
 
 class User(db.Model, UserMixin):
     """
+    Database column field for all the classes
     """
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(20), nullable=False)
@@ -25,6 +26,7 @@ class User(db.Model, UserMixin):
     phone_number = db.Column(db.String(15), nullable=False)
     phone_number_2 = db.Column(db.String(15))
     last_seen = db.Column(db.DateTime, default=lambda: datetime.now(timezone.utc))
+    is_admin = db.Column(db.Boolean, default=False)
     posts = db.relationship(
         'Post', backref='agent', lazy=True)
     

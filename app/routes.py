@@ -4,7 +4,7 @@ from PIL import Image
 from werkzeug.utils import secure_filename
 from flask import render_template, url_for, flash, redirect, request
 from datetime import datetime, timezone
-from flask_login import current_user, login_user, login_required, logout_user
+from flask_login import current_user, login_user, login_required, logout_user, current_user
 from app import app, db
 from app.forms import RegistrationForm, LoginForm, EditAccountForm,PostForm 
 from app.models import User, Post, Image
@@ -27,6 +27,9 @@ posts = [
 @app.route('/')
 @app.route('/home/')
 def home():
+    # Query to get all posts, ordered by latest created first
+    posts = Post.query.order_by(Post.created_at.desc()).all()
+    
     return render_template('home.html', title='home page', posts=posts)
 
 @app.before_request
@@ -158,11 +161,11 @@ def save_images(form_images):
     for form_image in form_images:
 
         # generate a random hex name for each image
-        form_image = secure_filename(form_image.filename)
+        filename = secure_filename(form_image.filename)
         random_hex_name = secrets.token_hex(8)
         _, f_ext = os.path.splitext(form_image.filename)
         new_image_name = '{}.{}'.format(random_hex_name, f_ext)
-        image_path = os.path.join(app.config[UPLOAD_FOLDER], new_image_name)
+        image_path = os.path.join(app.config['UPLOAD_FOLDER'], new_image_name)
 
         # resize the image using pillow lib
         new_image_size = (250, 250)
@@ -189,3 +192,42 @@ def allowed_images(image_names):
             else:
                 return False
         return False
+
+
+@app.route('/edit_post/<int:post_id>', methods=['GET', 'POST'])
+@login_required
+def edit_post(post_id):
+    # Retrieve the post to be edited
+    post = Post.query.get_or_404(post_id)
+
+    # Check if the current user is authorized to edit the post
+    if post.user_id != current_user.id and not current_user.is_admin:
+        flash('You are not authorized to edit this post.', 'danger')
+        return redirect(url_for('home'))
+
+    form = PostForm(obj=post)
+
+    if form.validate_on_submit():
+        # Update post with form data
+        post.description = form.description.data
+        post.status = form.status.data
+        post.country = form.country.data
+        post.state = form.state.data
+        post.city = form.city.data
+        post.address = form.address.data
+
+        # Save any new images
+        if form.photos.data:
+            if allowed_images([photo.filename for photo in form.photos.data]):
+                image_list = save_images(form.photos.data)
+                # Delete old images or handle image updates if needed
+                # Append new images to the post
+                for image_filename in image_list:
+                    image = Image(filename=image_filename, post_id=post.id)
+                    db.session.add(image)
+
+        db.session.commit()
+        flash('Post updated successfully!', 'success')
+        return redirect(url_for('home'))
+
+    return render_template('edit_post.html', title='Edit Post', form=form, post=post)
