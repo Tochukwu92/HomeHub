@@ -139,7 +139,7 @@ Navigation
     flex-direction: column;
     align-items: flex-start;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
-    background-color: white;
+    background-color: var(--color-gray-700);;
     height: 100%;
     width: 0%;
     max-width: 35rem;
@@ -159,7 +159,11 @@ Navigation
 
   .nav-list .nav-link {
     font-size: 2rem;
-    color: var(--black);
+    color: var(--color-white);;
+  }
+
+  .nav-item .nav_sign {
+    margin-left: 1.2rem;
   }
 
   .nav-center .hamburger {
@@ -426,6 +430,11 @@ Navigation
 
 .rent .box .pos .buy span{
   background-color: #e0203b;
+}
+
+.rent .box .pos .buy span:hover{
+  background-color: var(--color-green);
+  color: var(--white)
 }
 
 .rent .box .bottom {

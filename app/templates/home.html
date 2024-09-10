@@ -3,57 +3,29 @@
 {% block content %}
     <!-- Header -->
     <header class="header" id="header">
-        <div class="navigation">
-        <div class="nav-center container d-flex">
-            <a href="#" class="logo"><h1>HomeHub</h1></a>
-
-            <ul class="nav-list d-flex">
-            <li class="nav-item">
-                <a href="/" class="nav-link">Home</a>
-            </li>
-            <li class="nav-item">
-                <a href="services.html" class="nav-link">Services</a>
-            </li>
-            <li class="nav-item">
-                <a href="about" class="nav-link">About</a>
-            </li>
-            <li class="nav-item">
-                <a href="contact" class="nav-link">Contact</a>
-            </li>
-            <li class="nav-item">
-                <a href="register.html" class="nav_sign">Login</a>
-            </li>
-            </ul>
-
-            <div class="hamburger">
-            <i class="bx bx-menu-alt-left"></i>
-            </div>
-        </div>
-        </div>
-
         <div class="hero">
-        <div class="swiper-container heroslider">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <img src="./images/pic0001.jpg" alt="images" />
+            <div class="swiper-container heroslider">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="{{ url_for('static', filename='images/pic0001.jpg') }}" alt="Image">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ url_for('static', filename='images/pic001.jpg') }}" alt="Image">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ url_for('static', filename='images/pic01.jpg') }}" alt="Image">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ url_for('static', filename='images/pic10.jpg') }}" alt="Image">
+                        </div>
                     </div>
-                    <div class="swiper-slide">
-                        <img src="./images/pic2.jpg" alt="images" />
+                    <div class="swiper-button-next">
+                        <i class="bx bx-chevron-right swiper-icon"></i>
                     </div>
-                    <div class="swiper-slide">
-                        <img src="./images/pic5.jpg" alt="images" />
+                    <div class="swiper-button-prev">
+                        <i class="bx bx-chevron-left swiper-icon"></i>
                     </div>
-                    <div class="swiper-slide">
-                        <img src="./images/pic6.jpg" alt="images" />
-                    </div>
-                </div>
-                <div class="swiper-button-next">
-                    <i class="bx bx-chevron-right swiper-icon"></i>
-                </div>
-                <div class="swiper-button-prev">
-                    <i class="bx bx-chevron-left swiper-icon"></i>
-                </div>
-        </div>
+            </div>
         </div>
 
         <div class="content">
@@ -77,17 +49,17 @@
             <div class="box">
                 <div class="top">
                     <div class="overlay">
-                        <img src="./images/pic001.jpg" alt="" />
+                        <img src="{{ url_for('static', filename='images/pic11.jpg') }}" alt="Image">
                     </div>
                     <div class="pos">
-                        <a href="#" class="fea"><span>FEATURED</span></a>
-                        <a href="#" class="buy"><span>BUY</span></a>
+                        <a href="{{ url_for('feature')}}" class="fea"><span>FEATURED</span></a>
+                        <a href="{{ url_for('login') }}" class="buy"><span>BUY</span></a>
                     </div>
                 </div>
                 <div class="bottom">
-                    <p>Luxury villa in Lagos City</p>
+                    <p>3 bedroom flat @ Lagos_Island Lagos City</p>
                     <div>
-                        <span>$700</span>
+                        <span>$300</span>
                         <span><i class="far fa-eye"></i></span>
                     </div>
                 </div>
@@ -95,17 +67,17 @@
             <div class="box">
                 <div class="top">
                     <div class="overlay">
-                        <img src="./images/pic01.jpg" alt="" />
+                        <img src="{{ url_for('static', filename='images/pic12.jpg') }}" alt="Image">
                     </div>
                     <div class="pos">
-                        <a href="#" class="fea"><span>FEATURED</span></a>
-                        <a href="#" class="buy"><span>BUY</span></a>
+                        <a href="{{ url_for('feature')}}" class="fea"><span>FEATURED</span></a>
+                        <a href="{{ url_for('login') }}" class="buy"><span>BUY</span></a>
                     </div>
                 </div>
                 <div class="bottom">
-                    <p>Luxury villa Ebonyi State</p>
+                    <p>2 bedroom flat @ Ikoyi Lagos City</p>
                     <div>
-                        <span>$700</span>
+                        <span>$200</span>
                         <span><i class="far fa-eye"></i></span>
                     </div>
                 </div>
@@ -113,17 +85,17 @@
             <div class="box">
                 <div class="top">
                     <div class="overlay">
-                        <img src="./images/pic7.jpg" alt="" />
+                        <img src="{{ url_for('static', filename='images/pic13.jpg') }}" alt="Image">
                     </div>
                     <div class="pos">
-                        <a href="#" class="fea"><span>FEATURED</span></a>
-                        <a href="#" class="buy"><span>BUY</span></a>
+                        <a href="{{ url_for('feature')}}" class="fea"><span>FEATURED</span></a>
+                        <a href="{{ url_for('login') }}" class="buy"><span>BUY</span></a>
                     </div>
                 </div>
                 <div class="bottom">
-                    <p>Luxury villa in Edo State</p>
+                    <p>1 room selfcon @ Bananna Island Lagos City</p>
                     <div>
-                        <span>$700</span>
+                        <span>$100</span>
                         <span><i class="far fa-eye"></i></span>
                     </div>
                 </div>
@@ -131,17 +103,17 @@
             <div class="box">
                 <div class="top">
                     <div class="overlay">
-                        <img src="./images/pic8.jpg" alt="" />
+                        <img src="{{ url_for('static', filename='images/pic14.jpg') }}" alt="Image">
                     </div>
                     <div class="pos">
-                        <a href="#" class="fea"><span>FEATURED</span></a>
-                        <a href="#" class="buy"><span>BUY</span></a>
+                        <a href="{{ url_for('feature')}}" class="fea"><span>FEATURED</span></a>
+                        <a href="{{ url_for('login') }}" class="buy"><span>BUY</span></a>
                     </div>
                 </div>
                 <div class="bottom">
-                    <p>Luxury villa in Abuja Capital City</p>
+                    <p>4 bedroom flat @ Eko Atlantic Lagos City</p>
                     <div>
-                        <span>$700</span>
+                        <span>$400</span>
                         <span><i class="far fa-eye"></i></span>
                     </div>
                 </div>
@@ -149,17 +121,17 @@
             <div class="box">
                 <div class="top">
                     <div class="overlay">
-                        <img src="./images/pic9.jpg" alt="" />
+                        <img src="{{ url_for('static', filename='images/pic2.jpg') }}" alt="Image">
                     </div>
                     <div class="pos">
-                        <a href="#" class="fea"><span>FEATURED</span></a>
-                        <a href="#" class="buy"><span>BUY</span></a>
+                        <a href="{{ url_for('feature')}}" class="fea"><span>FEATURED</span></a>
+                        <a href="{{ url_for('login') }}" class="buy"><span>BUY</span></a>
                     </div>
                 </div>
                 <div class="bottom">
-                    <p>Luxury villa in Abia State</p>
+                    <p>5 bedroom flat @ Agege Lagos City</p>
                     <div>
-                        <span>$700</span>
+                        <span>$500</span>
                         <span><i class="far fa-eye"></i></span>
                     </div>
                 </div>
@@ -167,17 +139,17 @@
             <div class="box">
                 <div class="top">
                     <div class="overlay">
-                        <img src="./images/pic10.jpg" alt="" />
+                        <img src="{{ url_for('static', filename='images/pic5.jpg') }}" alt="Image">
                     </div>
                     <div class="pos">
-                        <a href="#" class="fea"><span>FEATURED</span></a>
-                        <a href="#" class="buy"><span>BUY</span></a>
+                        <a href="{{ url_for('feature')}}" class="fea"><span>FEATURED</span></a>
+                        <a href="{{ url_for('login') }}" class="buy"><span>BUY</span></a>
                     </div>
                 </div>
                 <div class="bottom">
-                    <p>Luxury villa in Kaduna State</p>
+                    <p>One room Selfcon @ Ikeja Lagos City</p>
                     <div>
-                        <span>$700</span>
+                        <span>$100</span>
                         <span><i class="far fa-eye"></i></span>
                     </div>
                 </div>
@@ -185,17 +157,17 @@
             <div class="box">
                 <div class="top">
                     <div class="overlay">
-                        <img src="./images/pic11.jpg" alt="" />
+                        <img src="{{ url_for('static', filename='images/pic6.jpg') }}" alt="Image">
                     </div>
                     <div class="pos">
-                        <a href="#" class="fea"><span>FEATURED</span></a>
-                        <a href="#" class="buy"><span>BUY</span></a>
+                        <a href="{{ url_for('feature')}}" class="fea"><span>FEATURED</span></a>
+                        <a href="{{ url_for('login') }}" class="buy"><span>BUY</span></a>
                     </div>
                 </div>
                 <div class="bottom">
-                    <p>Luxury villa in Niger State</p>
+                    <p>4 bedroom flat @ Lekki Lagos City</p>
                     <div>
-                        <span>$700</span>
+                        <span>$400</span>
                         <span><i class="far fa-eye"></i></span>
                     </div>
                 </div>
@@ -203,17 +175,17 @@
             <div class="box">
                 <div class="top">
                     <div class="overlay">
-                        <img src="./images/pic12.jpg" alt="" />
+                        <img src="{{ url_for('static', filename='images/pic13.jpg') }}" alt="Image">
                     </div>
                     <div class="pos">
-                        <a href="#" class="fea"><span>FEATURED</span></a>
-                        <a href="#" class="buy"><span>BUY</span></a>
+                        <a href="{{ url_for('feature')}}" class="fea"><span>FEATURED</span></a>
+                        <a href="{{ url_for('login') }}" class="buy"><span>BUY</span></a>
                     </div>
                 </div>
                 <div class="bottom">
-                    <p>Luxury villa in Gomber State</p>
+                    <p>1 Room @ Ikorodu Lagos City</p>
                     <div>
-                        <span>$700</span>
+                        <span>$50</span>
                         <span><i class="far fa-eye"></i></span>
                     </div>
                 </div>
@@ -229,16 +201,16 @@
 
         <div class="wrapper container">
         <div class="box box1">
-            <img src="./images/pic13.jpg" alt="" />
+            <img src="{{ url_for('static', filename='images/pic0001.jpg') }}" alt="Image">/>
         </div>
         <div class="box box2">
-            <img src="./images/pic14.jpg" alt="" />
+            <img src="{{ url_for('static', filename='images/pic14.jpg') }}" alt="Image">
         </div>
         <div class="box box3">
-            <img src="./images/pic6.jpg" alt="" />
+            <img src="{{ url_for('static', filename='images/pic5.jpg') }}" alt="Image">
         </div>
         <div class="box box4">
-            <img src="./images/pic5.jpg" alt="" />
+            <img src="{{ url_for('static', filename='images/pic01.jpg') }}" alt="Image">
         </div>
         </div>
     </section>
@@ -253,7 +225,7 @@
                         We love our customers and they can reach us any time of day we will
                         be at your service 24/7
                     </p>
-                    <a href="" class="btn btn-1">Contact</a>
+                    <a href="{{ url_for('contact') }}" class="btn btn-1">Contact</a>
                 </div>
                 <div class="col">
                     <form action="">
@@ -280,17 +252,17 @@
             <div class="box">
                 <div class="top">
                     <div class="overlay">
-                        <img src="./images/pic01.jpg" alt="" />
+                        <img src="{{ url_for('static', filename='images/pic001.jpg') }}" alt="Image">
                     </div>
                     <div class="pos">
-                        <a href="#" class="fea"><span>FEATURED</span></a>
-                        <a href="#" class="buy"><span>BUY</span></a>
+                        <a href="{{ url_for('feature')}}" class="fea"><span>FEATURED</span></a>
+                        <a href="{{ url_for('login') }}" class="buy"><span>BUY</span></a>
                     </div>
                 </div>
                 <div class="bottom">
-                    <p>Luxury villa in las vegas</p>
+                    <p>3 bedroom flat @ Ikoyi Lagos City</p>
                     <div>
-                        <span>$700</span>
+                        <span>$300</span>
                         <span><i class="far fa-eye"></i></span>
                     </div>
                 </div>
@@ -298,17 +270,17 @@
             <div class="box">
                 <div class="top">
                     <div class="overlay">
-                        <img src="./images/pic001.jpg" alt="" />
+                        <img src="{{ url_for('static', filename='images/pic6.jpg') }}" alt="Image">
                     </div>
                     <div class="pos">
-                        <a href="#" class="fea"><span>FEATURED</span></a>
-                        <a href="#" class="buy"><span>BUY</span></a>
+                        <a href="{{ url_for('feature')}}" class="fea"><span>FEATURED</span></a>
+                        <a href="{{ url_for('login') }}" class="buy"><span>BUY</span></a>
                     </div>
                 </div>
                 <div class="bottom">
-                    <p>Luxury villa in las vegas</p>
+                    <p>4 bedroom flat @ Bananna Island Lagos City</p>
                     <div>
-                        <span>$700</span>
+                        <span>$400</span>
                         <span><i class="far fa-eye"></i></span>
                     </div>
                 </div>
@@ -316,17 +288,17 @@
             <div class="box">
                 <div class="top">
                     <div class="overlay">
-                        <img src="./images/pic2.jpg" alt="" />
+                        <img src="{{ url_for('static', filename='images/pic10.jpg') }}" alt="Image">
                     </div>
                     <div class="pos">
-                        <a href="#" class="fea"><span>FEATURED</span></a>
-                        <a href="#" class="buy"><span>BUY</span></a>
+                        <a href="{{ url_for('feature')}}" class="fea"><span>FEATURED</span></a>
+                        <a href="{{ url_for('login') }}" class="buy"><span>BUY</span></a>
                     </div>
                 </div>
                 <div class="bottom">
-                    <p>Luxury villa in las vegas</p>
+                    <p>5 bedroom flat @ Eko Atlantic Lagos City</p>
                     <div>
-                        <span>$700</span>
+                        <span>$500</span>
                         <span><i class="far fa-eye"></i></span>
                     </div>
                 </div>
@@ -334,49 +306,23 @@
             <div class="box">
                 <div class="top">
                     <div class="overlay">
-                        <img src="./images/pic11.jpg" alt="" />
+                        <img src="{{ url_for('static', filename='images/pic14.jpg') }}" alt="Image">
                     </div>
                     <div class="pos">
-                        <a href="#" class="fea"><span>FEATURED</span></a>
-                        <a href="#" class="buy"><span>BUY</span></a>
+                        <a href="{{ url_for('feature')}}" class="fea"><span>FEATURED</span></a>
+                        <a href="{{ url_for('login') }}" class="buy"><span>BUY</span></a>
                     </div>
                 </div>
                 <div class="bottom">
-                    <p>Luxury villa in las vegas</p>
+                    <p> Selfcon @ Lekki Lagos City</p>
                     <div>
-                        <span>$700</span>
+                        <span>$100</span>
                         <span><i class="far fa-eye"></i></span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="row">
-        <div class="col d-flex">
-            <h2>INFORMATION</h2>
-            <a href="">About us</a>
-            <a href="">Contact Us</a>
-            <a href="">Term & Conditions</a>
-            <a href="">Shipping Guide</a>
-        </div>
-        <div class="col d-flex">
-            <h2>USEFUL LINK</h2>
-            <a href="">Online Store</a>
-            <a href="">Customer Services</a>
-            <a href="">Promotion</a>
-            <a href="">Top Brands</a>
-        </div>
-        <div class="col d-flex">
-            <span><i class="bx bxl-facebook-square"></i></span>
-            <span><i class="bx bxl-instagram-alt"></i></span>
-            <span><i class="bx bxl-github"></i></span>
-            <span><i class="bx bxl-twitter"></i></span>
-        </div>
-        </div>
-    </footer>
 {% for post in posts %}
     <p>{{ post }}</p>
 {% endfor %}
