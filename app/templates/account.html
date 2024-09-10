@@ -9,10 +9,21 @@
 		        {% endif %}
 	        </td>
         </tr>
+        <tr>
+            <td>
+                <p>Phone number : {{ current_user.phone_number }}</p></br>
+                {% if current_user.phone_number_2 %}
+                <p>Phone number 2: {{ current_user.phone_number_2 }}</p>
+                {% endif %}
+            </td>
+        </tr>
     </table>
     <hr>
     <p>
         <a href="{{ url_for('edit_account') }}">Edit profile</a>
+    </p>
+    <p>
+        <a href="{{ url_for('create_post') }}">Create post</a>
     </p>
 {% endblock content %}
  

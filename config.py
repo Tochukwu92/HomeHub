@@ -16,4 +16,4 @@ class Config:
     
     # image configuration
     UPLOAD_FOLDER = 'static/uploads/'
-    ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
+    ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg','gif'}

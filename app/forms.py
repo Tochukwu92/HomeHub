@@ -53,19 +53,19 @@ class RegistrationForm(FlaskForm):
 
 
 
-class EditAcountForm(FlaskForm):
+class EditAccountForm(FlaskForm):
     """
     Edit user profile
     """
-    first_name = StringField('First name')
+    first_name = StringField('First name', validators=[DataRequired()])
 
-    last_name = StringField('Last name')
+    last_name = StringField('Last name', validators=[DataRequired()])
     
-    username = StringField('Username')
+    username = StringField('Username', validators=[DataRequired()])
     
-    phone_number = StringField('Phone number 1')
+    phone_number = StringField('Phone number 1', validators=[DataRequired()])
     
-    phone_number_2 = StringField('Phone number 2')
+    phone_number_2 = StringField('Phone number 2', validators=[Optional()])
 
     submit = SubmitField('Edit account')
     
@@ -104,8 +104,9 @@ class PostForm(FlaskForm):
 
     status = SelectField(
         'Satus',
-        choice=['Vacant', 'Rented'],
-        validators=[DataRequired()])
+        choices=[('Vacant', 'Vacant'), ('Rented', 'Rented')],
+        validators=[DataRequired()]
+        )
     
     photos = MultipleFileField('Images', validators=[
         FileAllowed(['jpg', 'jpeg', 'png', 'gif'], 'Images only')])
@@ -132,7 +133,9 @@ class EditPostForm(FlaskForm):
 
     status = SelectField(
         'Satus',
-        choice=['Vacant', 'Rented'])
+        choices=[('Vacant', 'Vacant'), ('Rented','Rented')],
+        validators=[DataRequired()]
+        )
     
     photos = MultipleFileField('Images', validators=[
         FileAllowed(['jpg', 'jpeg', 'png', 'gif'], 'Images only')])

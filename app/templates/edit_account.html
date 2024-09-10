@@ -2,7 +2,7 @@
 
 {% block content %}
 <div>
-    <form action="" method="POST">
+    <form action="{{ url_for('edit_account') }}" method="POST">
         {{ form.hidden_tag() }}
         <p>
             {{ form.first_name.label }}<br>
