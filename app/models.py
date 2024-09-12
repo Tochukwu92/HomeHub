@@ -48,18 +48,18 @@ class User(db.Model, UserMixin):
 class StatusEnum(enum.Enum):
     """
     this class make sure that status filed in the Post class has
-    only 'Rented' or 'Vacant' options
+    only 'Occupied' or 'Vacant' options
     """
-    RENTED = 'Rented'
+    OCCUPIED = 'Occupied'
     VACANT = 'Vacant'
 
 class Post(db.Model):
     """
     """
     id = db.Column(db.Integer, primary_key=True)
-    discription = db.Column(db.Text, nullable=False)
+    description = db.Column(db.Text, nullable=False)
     status = db.Column(
-        Enum(StatusEnum), nullable=False, unique=True)
+        Enum(StatusEnum), nullable=False)
     country = db.Column(db.String(20))
     state = db.Column(db.String(20))
     city = db.Column(db.String(20), nullable=False)
@@ -69,9 +69,9 @@ class Post(db.Model):
     posted_time = db.Column(
         db.DateTime, nullable=False, default=lambda: datetime.now(timezone.utc))
     images = db.relationship(
-        'Image', backref='post', lazy=True)
+        'PostImage', backref='post', lazy=True)
 
-class Image(db.Model):
+class PostImage(db.Model):
     """
 
     """

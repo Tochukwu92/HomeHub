@@ -104,7 +104,7 @@ class PostForm(FlaskForm):
 
     status = SelectField(
         'Satus',
-        choices=[('Vacant', 'Vacant'), ('Rented', 'Rented')],
+        choices=[('Vacant', 'Vacant'), ('Occupied', 'Occupied')],
         validators=[DataRequired()]
         )
     
@@ -113,31 +113,3 @@ class PostForm(FlaskForm):
 
     submit = SubmitField('Create post')
 
-
-
-class EditPostForm(FlaskForm):
-    """
-    class enable edition of posts
-    """
-    description = StringField(
-        'Description', validators=[Length(min=2, max=200)])
-    
-    country = StringField(
-        'Country', validators=[Length(min=2, max=30)])
-    
-    state = StringField('State', validators=[Length(min=2, max=30)])
-    
-    city = StringField('City')
-    
-    address = StringField('Address')
-
-    status = SelectField(
-        'Satus',
-        choices=[('Vacant', 'Vacant'), ('Rented','Rented')],
-        validators=[DataRequired()]
-        )
-    
-    photos = MultipleFileField('Images', validators=[
-        FileAllowed(['jpg', 'jpeg', 'png', 'gif'], 'Images only')])
-
-    submit = SubmitField('Edit post')

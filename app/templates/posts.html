@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for post in posts %}
+    <div>
+        <div><h1>{{ post.status }}</h1></div>
+        <div><p>{{ post.posted_time.strftime('%d-%m-%Y') }}</p></div>
+        <div><p>{{ post.description }}</p></div>
+        <div><a href="{{ url_for('single_post', post_id=post.id) }}">View details</a></div>
+    </div>
+    {% endfor %}
+{% endblock content %}

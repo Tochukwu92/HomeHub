@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div>
+        <div><h1>{{ posts.status }}</h1></div>
+        <div><p>{{ posts.posted_time.strftime('%d-%m-%Y %H:%M') }}</p></div>
+        {% if posts.agent == current_user %}
+            <div>
+                <a href="{{ url_for('update_post', post_id=posts.id) }}">Update post</a>
+                <a href="{{ url_for('delete_post', post_id=posts.id) }}"></a>
+            </div>
+        {% endif %}
+        <div><p>{{ posts.discription }}</p></div>
+        {% if posts.country %}
+            <p>{{ posts.country }}</p>
+        {% endif %}
+        {% if posts.state %}
+            <p>{{ post.state }}</p>
+        {% endif %}
+        {% if post.city %}
+            <p>{{ posts.city }}</p>
+        {% endif %}
+        <div><p>{{ postsaddress }}</p></div>
+        {% for photo in photos %}
+        <div><p>{{ posts.photo }}</p></div>
+        {% endfor %}
+        <div><p>Posted by:{{ posts.agent.username }}</p></div>
+        <div>
+            <p>Mobile number {{ posts.agent.phone_number }}</p>
+            <p>Mobile number 2 {{ posts.agent.phone_number_2 }}</p>
+        </div>
+    </div>
+{% endblock content %}

@@ -40,29 +40,26 @@
                 <a href="{{ url_for('home') }}" class="nav-link">Home</a>
             </li>
             <li class="nav-item">
-                <a href="{{ url_for('services') }}" class="nav-link">Services</a>
+                <a href="./services.html class="nav-link">Services</a>
             </li>
             <li class="nav-item">
-                <a href="{{ url_for('about') }}" class="nav-link">About</a>
+                <a href="./about.html" class="nav-link">About</a>
             </li>
             <li class="nav-item">
-                <a href="{{ url_for('contact') }}" class="nav-link">Contact</a>
+                <a href="./contact.html" class="nav-link">Contact</a>
             </li>
-            { % if current_user.is_anonymous %}
               <li class="nav-item">
                   <a href="{{ url_for('login') }}" class="nav_sign">Login</a>
               </li>
               <li class="nav-item">
                   <a href="{{ url_for('register') }}" class="nav_sign">Sign Up</a>
               </li>
-            { % else % }  
               <li class="nav-item">
                   <a href="{{ url_for('logout') }}" class="nav_sign">logout</a>
               </li>
               <li class="nav-item">
                   <a href="{{ url_for('account') }}" class="nav_sign">Account</a>
-              </li>
-            { % endif % }  
+              </li> 
           </ul>
 
           <div class="hamburger">
@@ -77,25 +74,24 @@
             {% endfor %}
         {% endif %}
     {% endwith %}
-    {% block content %}
-
-    {% endblock content %}
+    {% block content %}{% endblock content %}
+    
     <!-- Footer -->
     <footer class="footer">
       <div class="row">
         <div class="col d-flex">
             <h2>INFORMATION</h2>
-            <a href="{{ url_for('about') }}">About us</a>
-            <a href="{{ url_for('contact') }}">Contact Us</a>
-            <a href="{{ url_for('term') }}">Term & Conditions</a>
-            <a href="{{ url_for('shipping') }}">Shipping Guide</a>
+            <a href="./about.html">About us</a>
+            <a href="./contact.html">Contact Us</a>
+            <a href="#">Term & Conditions</a>
+            <a href="#">Shipping Guide</a>
         </div>
         <div class="col d-flex">
             <h2>USEFUL LINK</h2>
-            <a href="">Online Store</a>
-            <a href="">Customer Services</a>
-            <a href="">Promotion</a>
-            <a href="">Top Brands</a>
+            <a href="#">Online Store</a>
+            <a href="#">Customer Services</a>
+            <a href="#">Promotion</a>
+            <a href="#">Top Brands</a>
         </div>
         <div class="col d-flex">
             <span><i class="bx bxl-facebook-square"></i></span>
