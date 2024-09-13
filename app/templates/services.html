@@ -1,92 +1,95 @@
 {% extends 'base.html' %}
 
-{% block content %}
-<section class="posts">
-    <div class="container posts__container">
+<body>
+    {% block content %}
+    <section class="posts">
+        <div class="container posts__container">
 
-        <article class="post">
-            <div class="post__thumbnail">
-                <img src="{{ url_for('static', filename='images/pic0001pg') }}" alt="Image">
-            </div>
-            <h3 class="post__title"><a href="#">Services Rendered</a>
-            </h3>
-            <p class="post__body">
-                Buying, selling and leasing of land and landed properties for any purpose is one of the
-                most difficult task to embark upon by anyone. There are so many factors to be considered 
-                as well as documents that need to be thoroughly scrutinized and investigated by the prospective
-                clients before concluding the transaction.
+            <article class="post">
+                <div class="post__thumbnail">
+                    <img src="{{ url_for('static', filename='images/pic0001pg') }}" alt="Image">
+                </div>
+                <h3 class="post__title"><a href="post.html">Services Rendered</a>
+                </h3>
+                <p class="post__body">
+                    Buying, selling and leasing of land and landed properties for any purpose is one of the
+                    most difficult task to embark upon by anyone. There are so many factors to be considered 
+                    as well as documents that need to be thoroughly scrutinized and investigated by the prospective
+                    clients before concluding the transaction.
 
-            </p>
+                </p>
 
-        </article>
+            </article>
+
+            
+            <article class="post">
+                <div class="post__thumbnail">
+                    <img src="{{ url_for('static', filename='images/pic001.jpg') }}" alt="Image">
+                </div>
+                <h3 class="post__title"><a href="post.html">Services Rendered</a>
+                </h3>
+                <p class="post__body">
+                    Buying, selling and leasing of land and landed properties for any purpose is one of the
+                    most difficult task to embark upon by anyone. There are so many factors to be considered 
+                    as well as documents that need to be thoroughly scrutinized and investigated by the prospective
+                    clients before concluding the transaction.
+                </p>
+
+            </article>
+
+
+            <article class="post">
+                <div class="post__thumbnail">
+                    <img src="{{ url_for('static', filename='images/pic10.jpg') }}" alt="Image">
+                </div>
+                <h3 class="post__title"><a href="post.html">Services Rendered</a>
+                </h3>
+                <p class="post__body">
+                    Buying, selling and leasing of land and landed properties for any purpose is one of the
+                    most difficult task to embark upon by anyone. There are so many factors to be considered 
+                    as well as documents that need to be thoroughly scrutinized and investigated by the prospective
+                    clients before concluding the transaction.
+
+                </p>
+
+            </article>
+
+
+            <article class="post">
+                <div class="post__thumbnail">
+                    <img src="{{ url_for('static', filename='images/pic13.jpg') }}" alt="Image">
+                </div>
+                <h3 class="post__title"><a href="post.html">Services Rendered</a>
+                </h3>
+                <p class="post__body">
+                    Buying, selling and leasing of land and landed properties for any purpose is one of the
+                    most difficult task to embark upon by anyone. There are so many factors to be considered 
+                    as well as documents that need to be thoroughly scrutinized and investigated by the prospective
+                    clients before concluding the transaction.
+
+                </p>
+
+            </article>
+
+
+            <article class="post">
+                <div class="post__thumbnail">
+                    <img src="{{ url_for('static', filename='images/pic6.jpg') }}" alt="Image">
+                </div>
+                <h3 class="post__title"><a href="post.html">Services Rendered</a>
+                </h3>
+                <p class="post__body">
+                    Buying, selling and leasing of land and landed properties for any purpose is one of the
+                    most difficult task to embark upon by anyone. There are so many factors to be considered 
+                    as well as documents that need to be thoroughly scrutinized and investigated by the prospective
+                    clients before concluding the transaction.
+
+                </p>
+
+            </article>
 
         
-        <article class="post">
-            <div class="post__thumbnail">
-                <img src="{{ url_for('static', filename='images/pic001.jpg') }}" alt="Image">
-                <img src="images/pic001.jpg">
-            </div>
-            <h3 class="post__title"><a href="#">Services Rendered</a>
-            </h3>
-            <p class="post__body">
-                Buying, selling and leasing of land and landed properties for any purpose is one of the
-                most difficult task to embark upon by anyone. There are so many factors to be considered 
-                as well as documents that need to be thoroughly scrutinized and investigated by the prospective
-                clients before concluding the transaction.
-            </p>
-
-        </article>
-
-
-        <article class="post">
-            <div class="post__thumbnail">
-                <img src="{{ url_for('static', filename='images/pic10.jpg') }}" alt="Image">
-            </div>
-            <h3 class="post__title"><a href="#">Services Rendered</a>
-            </h3>
-            <p class="post__body">
-                Buying, selling and leasing of land and landed properties for any purpose is one of the
-                most difficult task to embark upon by anyone. There are so many factors to be considered 
-                as well as documents that need to be thoroughly scrutinized and investigated by the prospective
-                clients before concluding the transaction.
-
-            </p>
-
-        </article>
-
-
-        <article class="post">
-            <div class="post__thumbnail">
-                <img src="{{ url_for('static', filename='images/pic13.jpg') }}" alt="Image">
-            </div>
-            <h3 class="post__title"><a href="#">Services Rendered</a>
-            </h3>
-            <p class="post__body">
-                Buying, selling and leasing of land and landed properties for any purpose is one of the
-                most difficult task to embark upon by anyone. There are so many factors to be considered 
-                as well as documents that need to be thoroughly scrutinized and investigated by the prospective
-                clients before concluding the transaction.
-
-            </p>
-        </article>
-
-        <article class="post">
-            <div class="post__thumbnail">
-                <img src="{{ url_for('static', filename='images/pic6.jpg') }}" alt="Image">
-                <img src="images/pic6.jpg">
-            </div>
-            <h3 class="post__title"><a href="#">Services Rendered</a>
-            </h3>
-            <p class="post__body">
-                Buying, selling and leasing of land and landed properties for any purpose is one of the
-                most difficult task to embark upon by anyone. There are so many factors to be considered 
-                as well as documents that need to be thoroughly scrutinized and investigated by the prospective
-                clients before concluding the transaction.
-            </p>
-
-        </article>
-    </div>
- </section>
-
-{% endblock content %}
- 
+        </div>
+    </section>
+    {% endblock content %}
+</body>    

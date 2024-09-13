@@ -4,7 +4,7 @@ from PIL import Image
 from werkzeug.utils import secure_filename
 from flask import render_template, url_for, flash, redirect, request, abort
 from datetime import datetime, timezone
-from flask_login import current_user, login_user, login_required, logout_user
+from flask_login import current_user, login_user, login_required, logout_user, current_user
 from app import app, db
 from app.forms import RegistrationForm, LoginForm, EditAccountForm 
 from app.forms import PostForm
@@ -15,8 +15,10 @@ from app.models import User, Post, PostImage
 @app.route('/')
 @app.route('/home/')
 def home():
+    # Query to get all posts, ordered by latest created first
+    # posts = Post.query.get.all()
+    
     return render_template('home.html', title='home page')
-
 
 @app.before_request
 def before_request():
@@ -88,6 +90,8 @@ def account():
 @app.route('/posts/new', methods=['GET','POST'])
 @login_required
 def new_post():
+    """
+    """
     form = PostForm()
     if form.validate_on_submit():
         print(f"Photos Data: {form.photos.data}")
@@ -123,19 +127,19 @@ def new_post():
     return render_template('posts_form.html', title='post page', form=form)
 
 
-@app.route('/post/')
+@app.route('/posts/')
 def all_post():
     posts = Post.query.all()
     return render_template('posts.html', title='post page', posts=posts)
 
 
-@app.route('/post/<post_id>/')
+@app.route('/posts/<post_id>/')
 def single_post(post_id):
     posts = Post.query.get_or_404(post_id)
     return render_template('_posts.html', title='post page', posts=posts)
 
 
-@app.route('/post/<post_id>/update', methods=['GET', 'POST'])
+@app.route('/posts/<post_id>/update', methods=['GET', 'POST'])
 @login_required
 def update_post(post_id):
     posts = Post.query.get_or_404(post_id)
@@ -167,17 +171,18 @@ def update_post(post_id):
     return render_template('posts_form.html', title='update_post page', form=form)
 
 
-@app.route('/post/<post_id>/delete', methods=['POST'])
+@app.route('/posts/<post_id>/', methods=['DELETE'])
 @login_required
 def delete_post(post_id):
     posts = Post.query.get_or_404(post_id)
+    print(posts)
     if posts.agent != current_user:
         abort(403)
+    
     db.session.delete(posts)
     db.session.commit()
     flash('your post has been sucessfully deleted!')
     return redirect(url_for('home'))
-
 
 
 @app.route('/edit_account/', methods=['GET', 'POST'])
@@ -209,10 +214,12 @@ def save_images(form_images):
     new_image_size = (250, 250)
 
     for form_image in form_images:
-        # Generate a random hex name and append the correct file extension
+
+        # generate a random hex name for each image
+        filename = secure_filename(form_image.filename)
         random_hex_name = secrets.token_hex(8)
-        _, f_ext = os.path.splitext(secure_filename(form_image))
-        new_image_name = '{}{}'.format(random_hex_name, f_ext)
+        _, f_ext = os.path.splitext(form_image.filename)
+        new_image_name = '{}.{}'.format(random_hex_name, f_ext)
         image_path = os.path.join(app.config['UPLOAD_FOLDER'], new_image_name)
 
         # Resize the image using Pillow
@@ -237,12 +244,13 @@ def allowed_images(image_names):
             f_ext = image_name_list[1].lower()
             if f_ext not in ALLOWED_EXTENSIONS:
                 return False
-        else:
-            return False
-    return True
+        return False
     
 
 @app.route('/logout/')
+@login_required
 def logout():
+    """
+    """
     logout_user()
     return redirect(url_for('home'))

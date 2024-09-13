@@ -1,12 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    {% for post in posts %}
-    <div>
-        <div><h1>{{ post.status }}</h1></div>
-        <div><p>{{ post.posted_time.strftime('%d-%m-%Y') }}</p></div>
-        <div><p>{{ post.description }}</p></div>
-        <div><a href="{{ url_for('single_post', post_id=post.id) }}">View details</a></div>
-    </div>
-    {% endfor %}
+    <h1>HOUSES FOR RENT</h1>
+    {% if posts %}
+        {% for post in posts %}
+        <div>
+            <div><h1>{{ post.status }}</h1></div>
+            <div><p>Posted on: {{ post.posted_time.strftime('%d-%m-%Y') }}</p></div>
+            <div><p>{{ post.description }}</p></div>
+            <div><p>Address: {{ post.address }}</p></div>
+            <div><a href="{{ url_for('single_post', post_id=post.id) }}">View details</a></div>
+        </div>
+        <hr>
+        {% endfor %}
+    {% endif %}
 {% endblock content %}

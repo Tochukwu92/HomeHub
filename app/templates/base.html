@@ -37,31 +37,33 @@
 
           <ul class="nav-list d-flex">
             <li class="nav-item">
-                <a href="{{ url_for('home') }}" class="nav-link">Home</a>
-            </li>
+              <a href="{{ url_for('home') }}" class="nav-link">Home</a>
+          </li>
             <li class="nav-item">
-                <a href="./services.html class="nav-link">Services</a>
-            </li>
-            <li class="nav-item">
-                <a href="./about.html" class="nav-link">About</a>
-            </li>
-            <li class="nav-item">
-                <a href="./contact.html" class="nav-link">Contact</a>
-            </li>
-              <li class="nav-item">
-                  <a href="{{ url_for('login') }}" class="nav_sign">Login</a>
-              </li>
-              <li class="nav-item">
-                  <a href="{{ url_for('register') }}" class="nav_sign">Sign Up</a>
-              </li>
+              <a href="{{ url_for('all_post') }}" class="nav-link">Explore Services</a>
+          </li>
+          <li class="nav-item">
+              <a href="./about.html" class="nav-link">About</a>
+          </li>
+          <li class="nav-item">
+              <a href="./contact.html" class="nav-link">Contact</a>
+          </li>
+            {% if current_user.is_authenticated %}
               <li class="nav-item">
                   <a href="{{ url_for('logout') }}" class="nav_sign">logout</a>
               </li>
               <li class="nav-item">
                   <a href="{{ url_for('account') }}" class="nav_sign">Account</a>
-              </li> 
+              </li>
+            {% else %}
+            <li class="nav-item">
+              <a href="{{ url_for('login') }}" class="nav_sign">Login</a>
+          </li>
+          <li class="nav-item">
+              <a href="{{ url_for('register') }}" class="nav_sign">Sign Up</a>
+          </li>
+            {% endif %}   
           </ul>
-
           <div class="hamburger">
             <i class="bx bx-menu-alt-left"></i>
           </div>
@@ -75,35 +77,6 @@
         {% endif %}
     {% endwith %}
     {% block content %}{% endblock content %}
-    
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="row">
-        <div class="col d-flex">
-            <h2>INFORMATION</h2>
-            <a href="./about.html">About us</a>
-            <a href="./contact.html">Contact Us</a>
-            <a href="#">Term & Conditions</a>
-            <a href="#">Shipping Guide</a>
-        </div>
-        <div class="col d-flex">
-            <h2>USEFUL LINK</h2>
-            <a href="#">Online Store</a>
-            <a href="#">Customer Services</a>
-            <a href="#">Promotion</a>
-            <a href="#">Top Brands</a>
-        </div>
-        <div class="col d-flex">
-            <span><i class="bx bxl-facebook-square"></i></span>
-            <span><i class="bx bxl-instagram-alt"></i></span>
-            <span><i class="bx bxl-github"></i></span>
-            <span><i class="bx bxl-twitter"></i></span>
-        </div>
-      </div>
-    </footer>
-    <div class="footer__copyright">
-      <small>copyright @copy: | ALX GROUP PROJECT</small>
-    </div>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="{{ url_for('static', filename='js/slider.js.js') }}"></script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>

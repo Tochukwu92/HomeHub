@@ -1,172 +1,173 @@
 {% extends 'base.html' %}
+<body>
+    {% block content %}
+    <section class="section rent">
+        <div class="title">
+        <h1>Properties For Rent</h1>
+        <p>
+            Search over 2000 properties to rent from the top agents in the country
+        </p>
+        </div>
 
-{% block content %}
-<section class="section rent">
-    <div class="title">
-      <h1>Properties For Rent</h1>
-      <p>
-        Search over 2000 properties to rent from the top agents in the country
-      </p>
-    </div>
-
-    <div class="rent-center container">
-        <div class="box">
-            <div class="top">
-                <div class="overlay">
-                    <img src="{{ url_for('static', filename='images/pic001jpg') }}" alt="Image">
+        <div class="rent-center container">
+            <div class="box">
+                <div class="top">
+                    <div class="overlay">
+                        <img src="{{ url_for('static', filename='images/pic001jpg') }}" alt="Image">
+                    </div>
+                    <div class="pos">                              
+                        <a href="{{ url_for('login') }}" class="buy"><span>BUY</span></a>
+                    </div>
                 </div>
-                <div class="pos">                              
-                    <a href="{{ url_for('login') }}" class="buy"><span>BUY</span></a>
+                <div class="bottom">
+                    <p>3bedroom flat @ Lagos_Island Lagos City</p>
+                    <div class="cart">
+                        <span>$300</span>
+                        <a href="{{ url_for('login') }}">add to cart</a>
+                        <span><i class="far fa-eye"></i></span>
+                    </div>
                 </div>
             </div>
-            <div class="bottom">
-                <p>3bedroom flat @ Lagos_Island Lagos City</p>
-                <div class="cart">
-                    <span>$300</span>
-                    <a href="{{ url_for('login') }}">add to cart</a>
-                    <span><i class="far fa-eye"></i></span>
+
+            <div class="box">
+                <div class="top">
+                    <div class="overlay">
+                        <img src="{{ url_for('static', filename='images/pic01.jpg') }}" alt="Image">
+                    </div>
+                    <div class="pos">
+                        <a href="{{ url_for('login') }}" class="buy"><span>BUY</span></a>
+                    </div>
+                </div>
+                <div class="bottom">
+                    <p>2 bedroom flat @ Ikoyi Lagos City</p>
+                    <div class="cart">
+                        <span>$200</span>
+                        <a href="{{ url_for('login') }}">add to cart</a>
+                        <span><i class="far fa-eye"></i></span>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="box">
+                <div class="top">
+                    <div class="overlay">
+                        <img src="{{ url_for('static', filename='images/pic7.jpg') }}" alt="Image">
+                    </div>
+                    <div class="pos">
+                        <a href="{{ url_for('login') }}" class="buy"><span>BUY</span></a>
+                    </div>
+                </div>
+                <div class="bottom">
+                    <p>1 room selfcon @ Bananna Island Lagos City</p>
+                    <div class="cart">
+                        <span>$100</span>
+                        <a href="{{ url_for('login') }}">add to cart</a>
+                        <span><i class="far fa-eye"></i></span>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="box">
+                <div class="top">
+                    <div class="overlay">
+                        <img src="{{ url_for('static', filename='images/pic8.jpg') }}" alt="Image">
+                    </div>
+                    <div class="pos">
+                        <a href="{{ url_for('login') }}" class="buy"><span>BUY</span></a>
+                    </div>
+                </div>
+                <div class="bottom">
+                    <p>4 bedroom flat @ Eko Atlantic Lagos City</p>
+                    <div class="cart">
+                        <span>$400</span>
+                        <a href="{{ url_for('login') }}">add to cart</a>
+                        <span><i class="far fa-eye"></i></span>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="box">
+                <div class="top">
+                    <div class="overlay">
+                        <img src="{{ url_for('static', filename='images/pic9.jpg') }}" alt="Image">
+                    </div>
+                    <div class="pos">
+                        <a href="{{ url_for('login') }}" class="buy"><span>BUY</span></a>
+                    </div>
+                </div>
+                <div class="bottom">
+                    <p>5 bedroom flat @ Agege Lagos City</p>
+                    <div class="cart">
+                        <span>$500</span>
+                        <a href="{{ url_for('login') }}">add to cart</a>
+                        <span><i class="far fa-eye"></i></span>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="box">
+                <div class="top">
+                    <div class="overlay">
+                        <img src="{{ url_for('static', filename='images/pic10.jpg') }}" alt="Image">
+                    </div>
+                    <div class="pos">
+                        <a href="{{ url_for('login') }}" class="buy"><span>BUY</span></a>
+                    </div>
+                </div>
+                <div class="bottom">
+                    <p>One room @ Ikeja Lagos City</p>
+                    <div class="cart">
+                        <span>$50</span>
+                        <a href="{{ url_for('login') }}">add to cart</a>
+                        <span><i class="far fa-eye"></i></span>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="box">
+                <div class="top">
+                    <div class="overlay">
+                        <img src="{{ url_for('static', filename='images/pic11.jpg') }}" alt="Image">
+                    </div>
+                    <div class="pos">
+                        <a href="{{ url_for('login') }}" class="buy"><span>BUY</span></a>
+                    </div>
+                </div>
+                <div class="bottom">
+                    <p>4 bedroom flat @ Lekki Lagos City</p>
+                    <div class="cart">
+                        <span>$400</span>
+                        <a href="{{ url_for('login') }}">add to cart</a>
+                        <span><i class="far fa-eye"></i></span>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="box">
+                <div class="top">
+                    <div class="overlay">
+                        <img src="{{ url_for('static', filename='images/pic12.jpg') }}" alt="Image">
+                    </div>
+                    <div class="pos">
+                        <a href="{{ url_for('login') }}" class="buy"><span>BUY</span></a>
+                    </div>
+                </div>
+                <div class="bottom">
+                    <p>1 room Selfcon @ Ikorodu Lagos City</p>
+                    <div class="cart">
+                        <span>$100</span>
+                        <a href="{{ url_for('login') }}">add to cart</a>
+                        <span><i class="far fa-eye"></i></span>
+                    </div>
                 </div>
             </div>
         </div>
-
-        <div class="box">
-            <div class="top">
-                <div class="overlay">
-                    <img src="{{ url_for('static', filename='images/pic01.jpg') }}" alt="Image">
-                </div>
-                <div class="pos">
-                    <a href="{{ url_for('login') }}" class="buy"><span>BUY</span></a>
-                </div>
-            </div>
-            <div class="bottom">
-                <p>2 bedroom flat @ Ikoyi Lagos City</p>
-                <div class="cart">
-                    <span>$200</span>
-                    <a href="{{ url_for('login') }}">add to cart</a>
-                    <span><i class="far fa-eye"></i></span>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="box">
-            <div class="top">
-                <div class="overlay">
-                    <img src="{{ url_for('static', filename='images/pic7.jpg') }}" alt="Image">
-                </div>
-                <div class="pos">
-                    <a href="{{ url_for('login') }}" class="buy"><span>BUY</span></a>
-                </div>
-            </div>
-            <div class="bottom">
-                <p>1 room selfcon @ Bananna Island Lagos City</p>
-                <div class="cart">
-                    <span>$100</span>
-                    <a href="{{ url_for('login') }}">add to cart</a>
-                    <span><i class="far fa-eye"></i></span>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="box">
-            <div class="top">
-                <div class="overlay">
-                    <img src="{{ url_for('static', filename='images/pic8.jpg') }}" alt="Image">
-                </div>
-                <div class="pos">
-                    <a href="{{ url_for('login') }}" class="buy"><span>BUY</span></a>
-                </div>
-            </div>
-            <div class="bottom">
-                <p>4 bedroom flat @ Eko Atlantic Lagos City</p>
-                <div class="cart">
-                    <span>$400</span>
-                    <a href="{{ url_for('login') }}">add to cart</a>
-                    <span><i class="far fa-eye"></i></span>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="box">
-            <div class="top">
-                <div class="overlay">
-                    <img src="{{ url_for('static', filename='images/pic9.jpg') }}" alt="Image">
-                </div>
-                <div class="pos">
-                    <a href="{{ url_for('login') }}" class="buy"><span>BUY</span></a>
-                </div>
-            </div>
-            <div class="bottom">
-                <p>5 bedroom flat @ Agege Lagos City</p>
-                <div class="cart">
-                    <span>$500</span>
-                    <a href="{{ url_for('login') }}">add to cart</a>
-                    <span><i class="far fa-eye"></i></span>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="box">
-            <div class="top">
-                <div class="overlay">
-                    <img src="{{ url_for('static', filename='images/pic10.jpg') }}" alt="Image">
-                </div>
-                <div class="pos">
-                    <a href="{{ url_for('login') }}" class="buy"><span>BUY</span></a>
-                </div>
-            </div>
-            <div class="bottom">
-                <p>One room @ Ikeja Lagos City</p>
-                <div class="cart">
-                    <span>$50</span>
-                    <a href="{{ url_for('login') }}">add to cart</a>
-                    <span><i class="far fa-eye"></i></span>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="box">
-            <div class="top">
-                <div class="overlay">
-                    <img src="{{ url_for('static', filename='images/pic11.jpg') }}" alt="Image">
-                </div>
-                <div class="pos">
-                    <a href="{{ url_for('login') }}" class="buy"><span>BUY</span></a>
-                </div>
-            </div>
-            <div class="bottom">
-                <p>4 bedroom flat @ Lekki Lagos City</p>
-                <div class="cart">
-                    <span>$400</span>
-                    <a href="{{ url_for('login') }}">add to cart</a>
-                    <span><i class="far fa-eye"></i></span>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="box">
-            <div class="top">
-                <div class="overlay">
-                    <img src="{{ url_for('static', filename='images/pic12.jpg') }}" alt="Image">
-                </div>
-                <div class="pos">
-                    <a href="{{ url_for('login') }}" class="buy"><span>BUY</span></a>
-                </div>
-            </div>
-            <div class="bottom">
-                <p>1 room Selfcon @ Ikorodu Lagos City</p>
-                <div class="cart">
-                    <span>$100</span>
-                    <a href="{{ url_for('login') }}">add to cart</a>
-                    <span><i class="far fa-eye"></i></span>
-                </div>
-            </div>
-        </div>
-    </div>
-  </section>
-{% endblock content %}
+    </section>
+    {% endblock content %}
+</body>

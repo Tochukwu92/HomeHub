@@ -104,7 +104,7 @@ class PostForm(FlaskForm):
 
     status = SelectField(
         'Satus',
-        choices=[('Vacant', 'Vacant'), ('Occupied', 'Occupied')],
+        choices=[('VACANT', 'VACANT'), ('OCCUPIED', 'OCCUPIED')],
         validators=[DataRequired()]
         )
     
