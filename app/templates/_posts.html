@@ -21,8 +21,8 @@
             <p>City: {{ posts.city }}</p>
         {% endif %}
         <div><p>Address: {{ posts.address }}</p></div>
-        {% for photo in photos %}
-        <div><p>{{ posts.photo }}</p></div>
+        {% for img in imgs %}
+        <div><p>{{ img.post.photos }}</p></div>
         {% endfor %}
         <div><p>Posted by: {{ posts.agent.username }}</p></div>
         <div>

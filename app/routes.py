@@ -94,8 +94,6 @@ def new_post():
     """
     form = PostForm()
     if form.validate_on_submit():
-        print(f"Photos Data: {form.photos.data}")
-        print(f"Data Type: {type(form.photos.data)}")
         # create a new post object
         post = Post(
             description=form.description.data,
@@ -135,8 +133,9 @@ def all_post():
 
 @app.route('/posts/<post_id>/')
 def single_post(post_id):
+    imgs = PostImage.query.get(post_id)
     posts = Post.query.get_or_404(post_id)
-    return render_template('_posts.html', title='post page', posts=posts)
+    return render_template('_posts.html', title='post page', posts=posts, imgs=imgs)
 
 
 @app.route('/posts/<post_id>/update', methods=['GET', 'POST'])

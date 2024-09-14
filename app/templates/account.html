@@ -8,13 +8,13 @@
                     <td style="border: 1px solid black;">
                         <h1>Agent: {{ current_user.username }}</h1>
                         {% if current_user.last_seen %}<p>Last seen on: {{ current_user.last_seen.strftime(
-                            '%d-%m-%Y %H:%M') }}</p>
+                            '%d %b, %Y %H:%M') }}</p><br>
                         {% endif %}
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <p>Phone number : {{ current_user.phone_number }}</p></br>
+                        <p>Phone number : {{ current_user.phone_number }}</p>
                         {% if current_user.phone_number_2 %}
                         <p>Phone number 2: {{ current_user.phone_number_2 }}</p>
                         {% endif %}
