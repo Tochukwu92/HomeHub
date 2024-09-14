@@ -106,7 +106,7 @@ class PostForm(FlaskForm):
         'Satus',
         choices=[('VACANT', 'VACANT'), ('OCCUPIED', 'OCCUPIED')],
         validators=[DataRequired()]
-        )
+    )
     
     photos = MultipleFileField('Images', validators=[
         FileAllowed(['jpg', 'jpeg', 'png', 'gif'], 'Images only')])

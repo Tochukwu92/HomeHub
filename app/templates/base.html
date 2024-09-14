@@ -18,10 +18,10 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
     <!-- Swiper js -->
-    <link
+    <!-- <link
       rel="stylesheet"
       href="https://unpkg.com/swiper/swiper-bundle.min.css"
-    />
+    /> -->
     <!-- Custom StyleSheet -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     {% if title %}
@@ -76,7 +76,38 @@
             {% endfor %}
         {% endif %}
     {% endwith %}
-    {% block content %}{% endblock content %}
+    {% block content %}
+    
+    {% endblock content %}
+
+     <!-- Footer -->
+    <footer class="footer">
+      <div class="row">
+        <div class="col d-flex">
+            <h2>INFORMATION</h2>
+            <a href="./about.html">About us</a>
+            <a href="./contact.html">Contact Us</a>
+            <a href="#">Term & Conditions</a>
+            <a href="#">Shipping Guide</a>
+        </div>
+        <div class="col d-flex">
+            <h2>USEFUL LINK</h2>
+            <a href="#">Online Store</a>
+            <a href="#">Customer Services</a>
+            <a href="#">Promotion</a>
+            <a href="#">Top Brands</a>
+        </div>
+        <div class="col d-flex">
+            <span><i class="bx bxl-facebook-square"></i></span>
+            <span><i class="bx bxl-instagram-alt"></i></span>
+            <span><i class="bx bxl-github"></i></span>
+            <span><i class="bx bxl-twitter"></i></span>
+        </div>
+      </div>
+    </footer>
+  <div class="footer__copyright">
+      <small>copyright @copy: | ALX GROUP PROJECT</small>
+  </div>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="{{ url_for('static', filename='js/slider.js.js') }}"></script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
