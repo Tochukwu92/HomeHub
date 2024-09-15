@@ -1236,6 +1236,15 @@ footer ul a:hover{
   color: var(--color-white);
 }
 
+button{
+  background-color: transparent;
+  color: var(--color-white);
+}
+
+button:hover{
+  color: var(--color-red);
+}
+
 /*==============================GENERAL FORM=============================*/
 
 .form__section{

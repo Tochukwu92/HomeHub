@@ -108,7 +108,7 @@ class PostForm(FlaskForm):
         validators=[DataRequired()]
     )
     
-    photos = MultipleFileField('Images', validators=[
+    images = MultipleFileField('Images', validators=[
         FileAllowed(['jpg', 'jpeg', 'png', 'gif'], 'Images only')])
 
     submit = SubmitField('Create post')
