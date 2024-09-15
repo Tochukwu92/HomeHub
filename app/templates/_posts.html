@@ -1,33 +1,41 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div>
-        <div><h1>{{ posts.status }}</h1></div>
-        <div><p>Date posted: {{ posts.posted_time.strftime('%d %b, %Y %H:%M') }}</p></div>
-        {% if posts.agent == current_user %}
+    <section class="empty__page-cont1">
+
+        <div class="cont1__page">
+            <div><h1>{{ posts.status }}</h1></div>
+            <div><p>Date posted: {{ posts.posted_time.strftime('%d %b, %Y %H:%M') }}</p></div>
+            
+            <div><p>Description: {{ posts.description }}</p></div>
+            {% if posts.country %}
+                <p>Country: {{ posts.country }}</p>
+            {% endif %}
+            {% if posts.state %}
+                <p>State: {{ posts.state }}</p>
+            {% endif %}
+            {% if posts.city %}
+                <p>City: {{ posts.city }}</p>
+            {% endif %}
+            <div><p>Address: {{ posts.address }}</p></div>
+            {% for photo in photos %}
+            <div><p>{{ posts.photo }}</p></div>
+            {% endfor %}
+            <div><p>Posted by: {{ posts.agent.username }}</p></div>
             <div>
-                <a href="{{ url_for('update_post', post_id=posts.id) }}">Update post</a><br>
-                <a href="{{ url_for('delete_post', post_id=posts.id) }}">Delete post</a>
+                <p>Mobile number: {{ posts.agent.phone_number }}</p>
+                <p>Mobile number 2: {{ posts.agent.phone_number_2 }}</p>
             </div>
-        {% endif %}
-        <div><p>Description: {{ posts.description }}</p></div>
-        {% if posts.country %}
-            <p>Country: {{ posts.country }}</p>
-        {% endif %}
-        {% if posts.state %}
-            <p>State: {{ posts.state }}</p>
-        {% endif %}
-        {% if posts.city %}
-            <p>City: {{ posts.city }}</p>
-        {% endif %}
-        <div><p>Address: {{ posts.address }}</p></div>
-        {% for img in imgs %}
-        <div><p>{{ img.post.photos }}</p></div>
-        {% endfor %}
-        <div><p>Posted by: {{ posts.agent.username }}</p></div>
-        <div>
-            <p>Mobile number: {{ posts.agent.phone_number }}</p>
-            <p>Mobile number 2: {{ posts.agent.phone_number_2 }}</p>
+            {% if posts.agent == current_user %}
+                <div class="cont_rep">
+                    <small class="rep1">
+                        <a href="{{ url_for('update_post', post_id=posts.id) }}">Update post</a><br>
+                    </small>
+                    <small class="rep2">
+                        <a href="{{ url_for('delete_post', post_id=posts.id) }}">Delete post</a>
+                    </small>
+                </div>
+            {% endif %}
         </div>
-    </div>
+    </section>
 {% endblock content %}

@@ -2,12 +2,13 @@
 <body>
     {% block content %}       
         <section class="empty__page">
+            <h1>Edit Post Account</h1>
             <div>
                 <form action="" method="POST" enctype="multipart/form-data">
                     {{ form.hidden_tag() }}
                     <p>
                         {{ form.first_name.label }}<br>
-                        {{ form.first_name(size=20) }}<br>
+                        {{ form.first_name(size=64) }}<br>
                         {% if form.first_name.errors %}
                             {% for error in form.first_name.errors %}
                                 <span style="color: red;">[{{ error }}]</span>
@@ -16,7 +17,7 @@
                     </p>
                     <p>
                         {{ form.last_name.label }}<br>
-                        {{ form.last_name(size=20) }}<br>
+                        {{ form.last_name(size=64) }}<br>
                         {% if form.last_name.errors %}
                             {% for error in form.last_name.errors %}
                                 <span style="color: red;">[{{ error }}]</span>
@@ -25,7 +26,7 @@
                     </p>
                     <p>
                         {{ form.username.label }}<br>
-                        {{ form.username(size=20) }}<br>
+                        {{ form.username(size=64) }}<br>
                         {% if form.username.errors %}
                             {% for error in form.username.errors %}
                                 <span style="color: red;">[{{ error }}]</span>
@@ -34,7 +35,7 @@
                     </p>
                     <p>
                         {{ form.phone_number.label }}<br>
-                        {{ form.phone_number(size=15) }}<br>
+                        {{ form.phone_number(size=64) }}<br>
                         {% if form.phone_number.errors %}
                             {% for error in form.phone_number.errors %}
                                 <span style="color: red;">[{{ error }}]</span>
@@ -43,7 +44,7 @@
                     </p>
                     <p>
                         {{ form.phone_number_2.label }}<br>
-                        {{ form.phone_number_2(size=15) }}<br>
+                        {{ form.phone_number_2(size=64) }}<br>
                         {% if form.phone_number_2.errors %}
                             {% for error in form.phone_number_2.errors %}
                                 <span style="color: red;">[{{ error }}]</span>
@@ -51,7 +52,7 @@
                         {% endif %}
                     </p>
                     <br>
-                    <p>{{ form.submit() }}</p>
+                    <p class="form_input">{{ form.submit() }}</p>
                 </form>
             </div>
         </section>
