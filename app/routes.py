@@ -94,6 +94,8 @@ def new_post():
     """
     form = PostForm()
     if form.validate_on_submit():
+        print(f"Photos Data: {form.images.data}")
+        print(f"Data Type: {type(form.images.data)}")
         # create a new post object
         post = Post(
             description=form.description.data,
@@ -109,14 +111,14 @@ def new_post():
         db.session.commit()
 
         # handle image uploads
-        if form.photos.data:
-            if allowed_images(form.photos.data):
-                image_list = save_images(form.photos.data)
+        if form.images.data:
+            if allowed_images(form.images.data):
+                image_list = save_images(form.images.data)
 
                 # save each image with the post_id
                 for image_filename in image_list:
-                    print(f"Photos Data: {form.photos.data}")
-                    print(f"Data Type: {type(form.photos.data)}")
+                    print(f"Images Data: {form.images.data}")
+                    print(f"Data Type: {type(form.images.data)}")
                     image = PostImage(filename=image_filename, post_id=post.id)
                     db.session.add(image)
                 db.session.commit()
@@ -141,47 +143,102 @@ def single_post(post_id):
 @app.route('/posts/<post_id>/update', methods=['GET', 'POST'])
 @login_required
 def update_post(post_id):
-    posts = Post.query.get_or_404(post_id)
-    if posts.agent != current_user:
-        abort(403)
-    form = PostForm()
-    if form.validate_on_submit():
-        posts.description = form.description.data,
-        posts.status = form.status.data,
-        posts.country = form.country.data,
-        posts.state = form.state.data,
-        posts.city = form.city.data,
-        posts.address = form.address.data
-        if form.photos.data:
-            if allowed_images(form.photos.data):
-                image_list = save_images(form.photos.data)
-                image = Image(filename=image_list, post_id=posts.id)
-        db.session.commit()
-        flash('your post has been updated!')
-        return redirect(url_for('single_post', post_id=posts.id))
-    elif request.method == 'GET':
-        form.description.data = posts.description
-        form.status.data = posts.status
-        form.country.data = posts.country
-        form.state.data = posts.state
-        form.city.data = posts.city
-        form.address.data = posts.address
-        form.photos.data = posts.photos
-    return render_template('posts_form.html', title='update_post page', form=form)
-
-
-@app.route('/posts/<post_id>/', methods=['DELETE'])
-@login_required
-def delete_post(post_id):
-    posts = Post.query.get_or_404(post_id)
-    print(posts)
-    if posts.agent != current_user:
+    post = Post.query.get_or_404(post_id)
+    if post.agent != current_user:
         abort(403)
     
-    db.session.delete(posts)
-    db.session.commit()
-    flash('your post has been sucessfully deleted!')
-    return redirect(url_for('home'))
+    form = PostForm(obj=post)
+    
+    if form.validate_on_submit():
+        # Update the post fields with form data
+        post.description = form.description.data
+        post.status = form.status.data
+        post.country = form.country.data
+        post.state = form.state.data
+        post.city = form.city.data
+        post.address = form.address.data
+        
+        if form.images.data:
+            if allowed_images(form.images.data):
+                image_list = save_images(form.images.data)
+                # Remove old images if necessary
+                Image.query.filter_by(post_id=post.id).delete()
+                # Add new images
+                for image_filename in image_list:
+                    image = Image(filename=image_filename, post_id=post.id)
+                    db.session.add(image)
+        
+        db.session.commit()
+        flash('Your post has been updated!', 'success')
+        return redirect(url_for('single_post', post_id=post.id))
+    
+    return render_template('posts_form.html', title='Update Post', form=form)
+
+
+
+
+# @app.route('/posts/<post_id>/update', methods=['GET', 'POST'])
+# @login_required
+# def update_post(post_id):
+#     posts = Post.query.get_or_404(post_id)
+#     if posts.agent != current_user:
+#         abort(403)
+#     form = PostForm()
+#     if form.validate_on_submit():
+#         posts.description = form.description.data,
+#         posts.status = form.status.data,
+#         posts.country = form.country.data,
+#         posts.state = form.state.data,
+#         posts.city = form.city.data,
+#         posts.address = form.address.data
+#         if form.images.data:
+#             if allowed_images(form.images.data):
+#                 image_list = save_images(form.images.data)
+#                 image = Image(filename=image_list, post_id=posts.id)
+#         db.session.commit()
+#         flash('your post has been updated!')
+#         return redirect(url_for('single_post', post_id=posts.id))
+#     elif request.method == 'GET':
+#         form.description.data = posts.description
+#         form.status.data = posts.status
+#         form.country.data = posts.country
+#         form.state.data = posts.state
+#         form.city.data = posts.city
+#         form.address.data = posts.address
+#         form.images.data = posts.images
+#     return render_template('posts_form.html', title='update_post page', form=form)
+
+
+@app.route('/posts/<int:post_id>/', methods=['POST'])
+@login_required
+def delete_post(post_id):
+    if request.form.get('_method') == 'delete':
+        post = Post.query.get_or_404(post_id)
+        if post.agent != current_user:
+            abort(403)
+
+        try:
+            db.session.delete(post)
+            db.session.commit()
+            flash('Your post has been successfully deleted!')
+        except Exception as e:
+            db.session.rollback()
+            flash(f'An error occurred: {str(e)}')
+
+        return redirect(url_for('home'))
+
+# @app.route('/posts/<post_id>/', methods=['DELETE'])
+# @login_required
+# def delete_post(post_id):
+#     posts = Post.query.get_or_404(post_id)
+#     print(posts)
+#     if posts.agent != current_user:
+#         abort(403)
+    
+#     db.session.delete(posts)
+#     db.session.commit()
+#     flash('your post has been sucessfully deleted!')
+#     return redirect(url_for('home'))
 
 
 @app.route('/edit_account/', methods=['GET', 'POST'])

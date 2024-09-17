@@ -53,9 +53,9 @@
                     {% endfor %}
                 </p>
                 <p>
-                    {{ form.photos.label }}<br>
-                    {{ form.photos(size=64) }}<br>
-                    {% for error in form.photos.errors %}
+                    {{ form.images.label }}<br>
+                    {{ form.images(size=64) }}<br>
+                    {% for error in form.images.errors %}
                     <span style="color: red;">[{{ error }}]</span>
                     {% endfor %}
                 </p>
